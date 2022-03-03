@@ -11,3 +11,11 @@ Compilation on Bridges-2:
 `ml cuda/11.1.1`
 
 CUDA is not really necessary, but we have more ambitious goals here...
+
+Regardless, a typical MKL call is:
+
+```fortran
+call dgemv(m, n, alpha, a, lda, x, incx, beta, y, incy)
+```
+
+and the point is that the array `a` can be much larger than the matrix A that we use to perform `y -> alpha*A*x + beta*y`.
